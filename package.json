@@ -1,0 +1,18 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "description": "proyecto javascript coder",
+  "main": "index.js",
+  "scripts": {
+    "demo": "npx nodemon js/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cecilia Dagata",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
+}

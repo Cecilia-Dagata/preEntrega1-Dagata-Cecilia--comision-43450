@@ -1,3 +1,55 @@
 * {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Ysabeau', sans-serif;
+}
+body{
+    background-color: rgba(201, 233, 233, 0.43);
+}
+
+.mainTit{
+    text-align: center;
+    margin: 50px auto;
+}
+h2{
+    text-align: center;
+    margin: 50px auto;
+}
+p{
+    text-align: center;
+    line-height: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.themeCategories{
+   margin-top: 35px;
+   margin-bottom: 60px;
+}
+
+.themeCategories li{
+    display: inline;
+    font-size: 1.2rem;
+    padding: 0px 20px;
+    font-weight: bold;
+}
+
+.themeDetail {
+    width: 300px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.colorCode{
+    color: blue;
+}
+
+td{
+    padding: 0px 25px;
+}
+.info{
+    padding: 0px 60px;
+}
+.countriesCategories{
+    margin-top: 70px;
 }
