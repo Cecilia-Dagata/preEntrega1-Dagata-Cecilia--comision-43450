@@ -1,17 +1,19 @@
-function contabilizaViajeros() {
+/*Se realizan los cálculos para una sola de las temáticas*/
+
+function contabilizarViajeros() {
     let cantidadViajeros = parseInt(prompt("Ingresa la cantidad de personas que viajarán"))
 
-    if (cantidadViajeros >= 1 || cantidadViajeros <= 9) {
+    if (cantidadViajeros >= 1 && cantidadViajeros <= 9) {
         console.log("Se registra solicitud de hospedaje para: " + cantidadViajeros + " " + "personas")
     } else if (cantidadViajeros >= 10 || cantidadViajeros <= 100) {
         console.log("Se registra solicitud de hospedaje para: " + cantidadViajeros + " " + "personas")
-        alert("Obtienes un descuento del 15% sobre el costo final")
+        alert("Contamos con un descuento de 20% para grupos a partir de 10 personas")
     } else {
         console.error("La cantidad ingresada no responde a los parámetros establecidos.")
     } return cantidadViajeros
 }
 
-function defineTraslados() {
+function definirTraslados() {
     let gastoCompuesto = parseInt(prompt("Ingresa el monto máximo para gastos de pasajes, traslados y entradas generales"))
 
     switch (gastoCompuesto) {
@@ -30,7 +32,7 @@ function defineTraslados() {
     }return gastoCompuesto
 }
 
-function defineHospedaje() {
+function definirHospedaje() {
     let gastoHospedaje = parseInt(prompt("Ingresa el monto máximo en concepto de hospedaje"))
 
     switch (gastoHospedaje) {
@@ -49,31 +51,14 @@ function defineHospedaje() {
     }return gastoHospedaje
 }
 
-function calculaTotal(gastoCompuesto, gastoHospedaje) {
-    let costoFinal = parseFloat(gastoCompuesto + gastoHospedaje) * cantidadViajeros
-    console.log("El precio final de tu paquete de viaje es de " + costoFinal)
-    return costoFinal
-
+function calcularTotal(cargoPorServicio) {
+    let costoFinal = parseInt(gastoCompuesto + gastoHospedaje) * cantidadViajeros * cargoPorServicio
+    console.log("El costo final de tu paquete de viaje para" + cantidadViajeros + "personas es de $" + costoFinal + "pesos")
 }
-
-function calculaDescuento(costoFinal, descuentoGrupo) {
-    let montoDescuento = costoFinal * descuentoGrupo
-    console.log("El descuento por grupo es de: ")
-    return montoDescuento
-}
-
-function precioDescontado(costoFinal, montoDescuento) {
-    let costoPromocional = costoFinal - montoDescuento
-    console.log("El precio del paquete de viaje con descuento promocional por grupo es de: " + costoPromocional)
-    return costoPromocional
-}
-
-
 
 alert("Armemos tu plan de gastos.")
-contabilizaViajeros()
-defineTraslados()
-defineHospedaje()
-calculaTotal()
-calculaDescuento()
-precioDescontado()
+contabilizarViajeros()
+definirTraslados()
+definirHospedaje()
+calcularTotal()
+

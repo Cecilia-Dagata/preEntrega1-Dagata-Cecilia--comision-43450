@@ -29,11 +29,9 @@ p{
 
 .themeCategories li{
     display: inline;
-    font-size: 1.2rem;
     padding: 0px 20px;
     font-weight: bold;
 }
-
 .themeDetail {
     width: 300px;
     text-align: left;
@@ -43,13 +41,17 @@ p{
 .colorCode{
     color: blue;
 }
-
 td{
     padding: 0px 25px;
+    font-size: 1.2rem;
 }
 .info{
     padding: 0px 60px;
 }
 .countriesCategories{
     margin-top: 70px;
+}
+.margenDiv{
+    margin: 40px auto;
+    font-size: 1.3rem;
 }
