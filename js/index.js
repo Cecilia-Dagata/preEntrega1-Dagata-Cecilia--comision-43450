@@ -51,14 +51,18 @@ function definirHospedaje() {
     }return gastoHospedaje
 }
 
-function calcularTotal(cargoPorServicio) {
-    let costoFinal = parseInt(gastoCompuesto + gastoHospedaje) * cantidadViajeros * cargoPorServicio
-    console.log("El costo final de tu paquete de viaje para" + cantidadViajeros + "personas es de $" + costoFinal + "pesos")
+/*Calculo sin descuento*/
+
+function calcularTotal() {
+    let costoParcial = parseInt((gastoCompuesto + gastoHospedaje) * cantidadViajeros)
+    console.log("El costo final de tu paquete de viaje para" + " " + cantidadViajeros + "personas es de $" + costoParcial + " " + "pesos")
+    confirm("¿Deseas continuar con el pago?")
 }
 
 alert("Armemos tu plan de gastos.")
-contabilizarViajeros()
-definirTraslados()
-definirHospedaje()
-calcularTotal()
+
+cantidadViajeros = contabilizarViajeros()
+gastoCompuesto = definirTraslados()
+gastoHospedaje = definirHospedaje()
+costoParcial = calcularTotal()
 

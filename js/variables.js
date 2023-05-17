@@ -1,6 +1,3 @@
-let cantidadViajeros = " ";
-let gastoCompuesto = " ";
-let gastoHospedaje = " ";
-let costoFinal = " ";
-let descuentoGrupal = " ";
-let cargoPorServicio = 1.20;
+let costoReal = " ";
+let descuentoGrupal = 1.20;
+let cargoPorServicio = 2000;
