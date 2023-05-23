@@ -95,11 +95,11 @@ gastoHospedaje = definirHospedaje()
 
 function continuarProceso() {
     let continuarPago = confirm("¿Deseas continuar con el proceso?")
-
-    while (continuarPago === true) {
-        calcularCostoParcial()
-        continuarPago === false
-    }
+   calcularCostoParcial()
+/*
+    while (continuarPago === false) {
+        console.log("Otra vez sera")
+    }*/
 }
 
 function calcularCostoParcial() {
