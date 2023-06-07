@@ -1,15 +1,16 @@
 function iniciarCompra() {
     let confirmarInicio = confirm("Bienvenid@. Para realizar cualquiera de los tours debes ser mayor de 18 años, ¿continuar?")
-    if (confirmarInicio === true) {
+    if (confirmarInicio) {
         ingresarEmail()
     } else {
         console.log("Para mayor información utiliza la sección de contacto")
+        return
     }
 }
 iniciarCompra()
 
 function ingresarEmail() {
-   let userEmail = prompt("Ingresa un e-mail de contacto")
+    let userEmail = prompt("Ingresa un e-mail de contacto")
     if (userEmail.trim().toLowerCase() != " " && userEmail.includes("@")) {
         alert("Una vez realizada la compra te enviaremos: \n -factura con el detalle de la misma \n -horarios y toda la información necesaria para tus viajes")
     } else {
@@ -41,7 +42,7 @@ buscarPaquetes()
 alert("Puedes sumar a tu paquete básico hasta (2) dos excursiones de alto riesgo.")
 
 function filtrarExcursiones() {
-   let ingresoTematica = prompt("Ingresa con palabras la temática elegida para encontrar excursiones relacionadas")
+    let ingresoTematica = prompt("Ingresa con palabras la temática elegida para encontrar excursiones relacionadas")
     let resultadoExcursiones = excursiones.filter((excursion) => excursion.tematica.toLowerCase().includes(ingresoTematica.toLowerCase()))
 
     if (resultadoExcursiones.length === 0) {
@@ -109,7 +110,7 @@ function definirHospedaje() {
     }return gastoHospedaje
 }
 gastoHospedaje = definirHospedaje()
- 
+
 //no tiene en cuenta el precio de los paquetes y el cargo por excursiones -si las hubiere- pendiente de resolución
 function calcularCostoParcial() {
     let costoParcial = parseInt((gastoCompuesto + gastoHospedaje) * cantidadViajeros)
@@ -121,6 +122,5 @@ costoParcial = calcularCostoParcial
 function agradecerCompra() {
     console.log("Tu pago quedó registrado " + "¡disfruta tu viaje!")
 }
-
 calcularCostoParcial()
 agradecerCompra()
