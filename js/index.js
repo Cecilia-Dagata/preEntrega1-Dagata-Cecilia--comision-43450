@@ -1,4 +1,4 @@
-function iniciarCompra() {
+/*function iniciarCompra() {
     let confirmarInicio = confirm("Bienvenid@. Para realizar cualquiera de los tours debes ser mayor de 18 años, ¿continuar?")
     if (confirmarInicio) {
         ingresarEmail()
@@ -8,6 +8,22 @@ function iniciarCompra() {
     }
 }
 iniciarCompra()
+*/
+
+function iniciarProceso(fn){
+    fn()
+}
+
+function comprobarEdad (){
+    let edadUsuario = parseInt(prompt("Indica tu edad para poder comenzar con el proceso."))
+    if (edadUsuario >= 18){
+        ingresarEmail()
+    }else{
+        console.warn("Para realizar cualquiera de los tours debes ser mayor de 18 años.")
+        return
+    }
+}
+iniciarProceso(comprobarEdad)
 
 function ingresarEmail() {
     let userEmail = prompt("Ingresa un e-mail de contacto")
@@ -41,9 +57,9 @@ buscarPaquetes()
 
 alert("Puedes sumar a tu paquete básico hasta (2) dos excursiones de alto riesgo.")
 
-function filtrarExcursiones() {
+function filtrarExcursion() {
     let ingresoTematica = prompt("Ingresa con palabras la temática elegida para encontrar excursiones relacionadas")
-    let resultadoExcursiones = excursiones.filter((excursion) => excursion.tematica.toLowerCase().includes(ingresoTematica.toLowerCase()))
+    let resultadoExcursiones = excursiones.filter((excursion) => excursiones.tematica.toLowerCase().includes(ingresoTematica.toLowerCase()))
 
     if (resultadoExcursiones.length === 0) {
         console.error("No ha ingresado una temática válida")
@@ -51,12 +67,9 @@ function filtrarExcursiones() {
         console.table(resultadoExcursiones)
     }
 }
-filtrarExcursiones()
+filtrarExcursion()
 
-/*Pensé usar la class para crear un nuevo objeto con la informacion del paquete básico y la excursion agregada, no le encontré la vuelta, lo sigo trabajando
-function SumarExcursion(){
-    let excursionesAgregadas = new Paquete(paqueteFinal)
-}*/
+
 
 function contabilizarViajeros() {
     let cantidadViajeros = parseInt(prompt("Ingresa la cantidad de personas que desean realizar el tour"))
