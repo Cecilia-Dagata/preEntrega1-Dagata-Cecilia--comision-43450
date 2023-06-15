@@ -1,10 +1,10 @@
-let codigoDeReferencia = " "
+let codigo = " "
 let tarifaServicio = 0.03
 
 
 habilitarExcursion()
-/*
-function iniciarProceso(fn){
+
+function iniciarProceso(fn) {
     fn()
 }
 
@@ -15,111 +15,111 @@ function ingresarEmail() {
     } else {
         console.warn("No pudimos validar el email ingresado. Reinténtalo.")
         emailIngresado()
-    }return 
+    } return
 }
 
-function comprobarEdad (){
+function comprobarEdad() {
     let edadIngresada = parseInt(prompt("Indica tu edad para poder comenzar con el proceso."))
-    
-    if (edadIngresada >= 18){
+
+    if (edadIngresada >= 18) {
         ingresarEmail()
-    }else{
+    } else {
         console.warn("Lo sentimos, para realizar cualquiera de los tours debes ser mayor de 18 años.")
     }
 }
-iniciarProceso(comprobarEdad)
+// iniciarProceso(comprobarEdad)
 
 alert("Busca entre las excursiones disponibles aquellas que se ajustan a la temática de tu interés")
 
-/*function filtrarTematica() {
+function filtrarTematica() {
     let tematicaIngresada = (prompt("Ingresa el nombre de la temática"))
-    let tematicaDeReferencia = excursiones.filter((excursion) => excursion.tematica.toLowerCase().includes(tematicaIngresada.toLowerCase()))
-    if (tematicaIngresada.length === 0) {
-        console.error("No ha ingresado una temática válida")
-        filtrarExcursion()
-    } else {
-        console.table(tematicaDeReferencia)
-    }
-}
-filtrarTematica()*/
+    let tematicaCoincidente = excursiones.filter((excursion) => excursion.tematica.toLowerCase().includes(tematicaIngresada.toLowerCase()))
 
-function discriminarEnArray(){
-    const costos = excursiones.map((excursion)=> {
+    if (tematicaIngresada.length === 0) {
+        console.error("Por favor, ingresa una temática válida")
+        filtrarTematica()
+    } else {
+        console.table(tematicaCoincidente)
+    } return (tematicaCoincidente)
+}
+// filtrarTematica()
+
+
+function discriminarEnArray() {
+    const resumen = excursiones.map((excursion) => {
         return {
             codigo: excursion.codigo,
             detalle: excursion.detalle,
             precio: excursion.precio,
-            tarifaServicio: excursion.precio * 0.03,
-            importeCompuesto: excursion.precio + excursion.precio * 0.03
+            // tarifaServicio: excursion.precio * 0.03,
+            // importeCompuesto: excursion.precio + excursion.precio * 0.03
         }
     })
-    console.table(costos)
-} 
-discriminarEnArray()
-
-/*function filtrarPrecios() {
-    let precioIngresado = parseInt(prompt("Ingresa un valor para conocer las excursiones disponibles"))
-    let precioDeReferencia = costos.filter((excursion) => excursion.precio =< precioIngresado)
-
-        if (precioIngresado != 0 && precioIngresado <= 30000) {
-            console.log(precioDeReferencia)
-        } else if (precioIngresado >= 31000 && precioIngresado <= 70000) {
-            console.log(precioDeReferencia)
-        } else if (precioIngresado >= 71000 && precioIngresado <= 100000){
-            console.log(precioDeReferencia)
-        } else {
-            console.error("La cantidad ingresada no coincide con los rangos de precios. Reintentalo.")
-        }
+    console.table(resumen)
 }
-filtrarPrecios()
+
+function filtrarPrecios() {
+    let precioIngresado = parseInt(prompt("Ingresa un valor para conocer las excursiones disponibles"))
+
+    const rangoUno = excursiones.filter(excursion => excursion.precio > 0 && excursion.precio <= 30000) === precioIngresado;
+    console.table(rangoUno)
+    const rangoDos = excursiones.filter(excursion => excursion.precio > 31000 && excursion.precio <= 70000 === precioIngresado);
+    console.table(rangoDos)
+    const rangoTres = excursiones.filter(excursion => excursion.precio > 71000 && excursion.precio <= 100000 === precioIngresado);
+    console.table(rangoTres)
+}
+// filtrarPrecios()
+
 
 alert("Elige tus excursiones -máx. 5-")
 
-function buscarExcursion() {
-    let codigoIngresado = parseInt(prompt("Ingresa el código de una excursión"))
-    codigoDeReferencia = excursiones.find((excursion) => excursion.codigo === codigoIngresado)
-    
-    if(codigoDeReferencia === undefined){
-        console.error("El código ingresado no es válido. Reinténtelo.")
-    }else{
-        console.log(codigoDeReferencia)
-    }
-}
-buscarExcursion()
+function buscarExcursion(codigo) {
+    // codigoIngresado = parseInt(prompt("Ingresa el código de una excursión"))
+    codigo = excursiones.find((excursion) => excursion.codigo === parseInt(codigo))
 
-function agregarExcursion() {
-    let excursionElegida = parseInt(prompt("Ingresa el código de una excursión"))
-    if(changuito.some === excursionElegida){
-        console.warn("La excursión elegida ya ha sido agregada, por favor seleccione otra")
-    }else{
-        changuito.push(excursionElegida)
+    if (codigo === undefined) {
+        console.error("El código ingresado no es válido. Reinténtelo.")
+    } else {
+        console.log(codigo)
     }
 }
-agregarExcursion ()
-*/
-function cerrarCompra (){
-    let totalFinal = changuito.reduce((acc, costo)=> acc + costo.importeCompuesto, 0)
-    console.log(acc)
-    console.log(costo.importeCompuesto)
-    console.log("El importe a pagar por tu paquete de viaje es de: $" + totalFinal)
+
+
+function seleccionarExcursion() {
+    codigo = parseInt(prompt("Ingresa el código de una excursión"))
+    let excursionSeleccionada = buscarExcursion(codigo)
+    if (excursionSeleccionada !== undefined) {
+        carrito.push(excursionSeleccionada)
+        console.log(carrito)
+        let continuar = confirm("¿Deseas agregar otra excursión?")
+        if (continuar === true) {
+            seleccionarExcursion()
+        } else {
+            cerrarCompra()
+        }
+    }
 }
-cerrarCompra()
+seleccionarExcursion()
 
 /*
+eliminarExcursion() {
+       this.excursiones.pop()
+   }
+
 function revisarCarrito (){
     console.log(carrito.length)
 }
 
 carrito.push(codigoDeReferencia)
 revisarCarrito()
-*/
 
-function visualizarCarrito (){
+
+function visualizarCarrito() {
     console.table(carrito)
 }
-visualizarCarrito()
 
-/*
+
+
 function contabilizarViajeros() {
     let cantidadViajeros = parseInt(prompt("Ingresa la cantidad de personas que desean realizar el tour"))
 
@@ -127,29 +127,46 @@ function contabilizarViajeros() {
         console.log("El cálculo de los costos del viaje se hará para: " + cantidadViajeros + " " + "personas")
     } else if (cantidadViajeros != 0 && cantidadViajeros >= 10) {
         console.log("El cálculo de los costos del viaje se hará para: " + cantidadViajeros + " " + "personas")
-        console.log("Para grupos de 10 o más personas contamos con un descuento del 15%")
     } else {
         console.error("La cantidad ingresada no puede ser menor a 1 persona. Reintentalo.")
     } return cantidadViajeros
 }
-cantidadViajeros = contabilizarViajeros()
+ cantidadViajeros = contabilizarViajeros()
 
+*/
+function cerrarCompra() {
+    let totalFinal = carrito.reduce((acc, excursion) => acc + excursion.precio, 0)
+    console.log("El importe a pagar por tu paquete de viaje es de: $" + totalFinal)
+
+}
 cerrarCompra()
+
+
+/*
+function calcularCostoCombinado(importeParcial, descuento, fn) {
+    let resultante = importeParcial * descuento
+    fn(resultante)
+}
+
+
 function cerrarCompra (){
-    let totalFinal = carrito.reduce((acc, excursion)=> acc + excursion.precio, 0)
+    let totalFinal = changuito.reduce((acc, costo)=> acc + costo.importeCompuesto, 0)
+    
+    console.log(costos.importeCompuesto)
     console.log("El importe a pagar por tu paquete de viaje es de: $" + totalFinal)
 }
 cerrarCompra()
 
-
-
-/*function ordenarPorNivel (){
-excursiones.sort()
-mostrarExcursiones()
+function visualizarChanguito (){
+    console.table(changuito)
 }
+visualizarChanguito()
 
-function calcularCostoCombinado(importeParcial, descuento, fn){
-    let resultante = importeParcial * descuento
-    fn(resultante)
-}
+
+
+if (carrito.some === excursionElegida) {
+        console.warn("La excursión elegida ya ha sido agregada, por favor seleccione otra")
+    } else {
+        
+    }
 */

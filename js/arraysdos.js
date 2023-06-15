@@ -1,7 +1,4 @@
-let carrito = [{ tematica: "Intervención humana", codigo: 12123, nivel: "plus", dificultad: "media", detalle: "Petra: la ciudad perdida", duracion: "4:00 horas", precio: 45000 },
-, { tematica: "Experiencia paranormal", codigo: 48484, nivel: "premium", dificultad: "media", detalle: "Aokigahara: el bosque de los suicidas", duracion: "3:00 horas", precio: 66900 }
-]
-
+let carrito = []
 let changuito = []
 
 const excursiones = []
